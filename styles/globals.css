@@ -9,6 +9,8 @@
 :root {
   --color-primary: #f7ecde;
   --color-secondary: #54bab9;
+  --color-white: #f9f9f9;
+  --cornersRadius: 10px;
 }
 body {
   background-color: var(--color-primary);
