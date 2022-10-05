@@ -34,6 +34,8 @@ export default function Home() {
             </option>
           ))}
         </select>
+
+        {/* checking first if there a branch is selected before dispalying any questions */}
         {index && (
           <div>
             {data[index].questions.map((qs, i) => {
