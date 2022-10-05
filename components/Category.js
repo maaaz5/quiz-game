@@ -11,23 +11,22 @@ export default function Category() {
 
   const { indexNum } = useContext(AppContext);
 
+  const handleClick = (e) => {
+    const clicked = e.target.closest("li");
+
+    if (!clicked) return;
+    let lis = document.querySelectorAll("li");
+    lis.forEach((li) => li.classList.remove("active"));
+
+    clicked.classList.add("active");
+    indexNum(clicked.value);
+    router.push("/");
+  };
+
   return (
     <>
       <h2 className="u-align-center ">please, select a category</h2>
-      <ul
-        className={styles.list}
-        onClick={(e) => {
-          const clicked = e.target.closest("li");
-
-          if (!clicked) return;
-          let lis = document.querySelectorAll("li");
-          lis.forEach((li) => li.classList.remove("active"));
-
-          clicked.classList.add("active");
-          indexNum(clicked.value);
-          router.push("/");
-        }}
-      >
+      <ul className={styles.list} onClick={handleClick}>
         {data.map((dt) => (
           <li className={styles.list__item} key={dt.id} value={dt.id}>
             <p className={styles.icon}>{dt?.icon}</p>

@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
         <Category />
       </div>
 
-      <div className="container">
+      <div>
         <Component {...pageProps} />
       </div>
     </AppProvider>
