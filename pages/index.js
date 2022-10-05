@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import { useState } from "react";
 import Card from "../components/card";
 import { data } from "../data/data";
@@ -8,55 +6,39 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   const [index, setIndex] = useState(null);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Quiz Game</title>
-        <meta name="description" content="A quiz game made for a school" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div>
+      <main>
+        <h2 className="u-align-center ">please, select a category</h2>
+        <ul
+          className={styles.list}
+          onClick={(e) => {
+            const clicked = e.target.closest("li");
 
-      <main className={styles.main}>
-        <select
-          name="branchs"
-          id="branchs"
-          onChange={(e) => {
-            console.log("hello");
-            setIndex(e.target.value);
-            console.log(index);
+            if (!clicked) return;
+            let lis = document.querySelectorAll("li");
+            lis.forEach((li) => li.classList.remove("active"));
+
+            clicked.classList.add("active");
+            setIndex(clicked.value);
           }}
         >
-          <option disabled selected>
-            Select a branch
-          </option>
           {data.map((dt) => (
-            <option key={dt.id} value={dt.id}>
+            <li className={styles.list__item} key={dt.id} value={dt.id}>
+              <p className={styles.icon}>{dt?.icon}</p>
               {dt.branch}
-            </option>
+            </li>
           ))}
-        </select>
-
+        </ul>
         {/* checking first if there a branch is selected before dispalying any questions */}
-        {index && (
+
+        {/* {index && (
           <div>
-            {data[index].questions.map((qs, i) => {
+            {data[index - 1].questions.map((qs, i) => {
               return <Card qs={qs} key={i} />;
             })}
           </div>
-        )}
+        )} */}
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   );
 }

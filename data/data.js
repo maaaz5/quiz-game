@@ -1,7 +1,13 @@
+import { HiOutlineDesktopComputer } from "react-icons/hi";
+import { MdSportsFootball } from "react-icons/md";
+import { ImHeadphones } from "react-icons/im";
+import { GiBookshelf } from "react-icons/gi";
+
 export const data = [
   {
-    id: 0,
-    branch: "Informatique",
+    id: 1,
+    branch: "Technology",
+    icon: <HiOutlineDesktopComputer />,
     questions: [
       {
         q: "what's the best prgramming language ?",
@@ -18,8 +24,47 @@ export const data = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     branch: "Sport",
+    icon: <MdSportsFootball />,
+    questions: [
+      {
+        q: "who's the best football player in the world ?",
+        a: "Siuuu",
+      },
+      {
+        q: "what player scored most goals in one single year ?",
+        a: "ankara messi",
+      },
+      {
+        q: "best bicycle goal ?",
+        a: "semi finals JUV vs RMA, and the rest is history",
+      },
+    ],
+  },
+  {
+    id: 3,
+    branch: "Music",
+    icon: <ImHeadphones />,
+    questions: [
+      {
+        q: "who's the best football player in the world ?",
+        a: "Siuuu",
+      },
+      {
+        q: "what player scored most goals in one single year ?",
+        a: "ankara messi",
+      },
+      {
+        q: "best bicycle goal ?",
+        a: "semi finals JUV vs RMA, and the rest is history",
+      },
+    ],
+  },
+  {
+    id: 4,
+    branch: "General Culture",
+    icon: <GiBookshelf />,
     questions: [
       {
         q: "who's the best football player in the world ?",
