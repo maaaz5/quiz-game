@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import Card from "../components/card";
 import { data } from "../data/data";
 import styles from "../styles/Home.module.css";
 
@@ -36,12 +37,7 @@ export default function Home() {
         {index && (
           <div>
             {data[index].questions.map((qs, i) => {
-              return (
-                <div key={i}>
-                  <h4>{qs.q}</h4>
-                  <h5>{qs.a}</h5>
-                </div>
-              );
+              return <Card qs={qs} key={i} />;
             })}
           </div>
         )}
