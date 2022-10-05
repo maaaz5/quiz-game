@@ -26,6 +26,7 @@
 }
 
 .num {
+  cursor: pointer;
   text-align: center;
   padding: 20px;
   background-color: var(--color-white);

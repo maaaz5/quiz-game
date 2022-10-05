@@ -13,7 +13,7 @@ export default function Questions() {
         <div className={styles.row}>
           {data[index - 1].questions.map((qs, i) => {
             return (
-              <Link href={""}>
+              <Link href={`/question/${i}`}>
                 <span className={styles.num}>{i + 1}</span>
               </Link>
             );

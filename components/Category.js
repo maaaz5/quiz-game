@@ -3,9 +3,11 @@ import styles from "../styles/Home.module.css";
 import { data } from "../data/data";
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
+import { useRouter } from "next/router";
 
 export default function Category() {
   const [index, setIndex] = useState(null);
+  const router = useRouter();
 
   const { indexNum } = useContext(AppContext);
 
@@ -23,6 +25,7 @@ export default function Category() {
 
           clicked.classList.add("active");
           indexNum(clicked.value);
+          router.push("/");
         }}
       >
         {data.map((dt) => (
