@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Link from "next/link";
 import AppContext from "../../context/AppContext";
 
-export default function qestionPage() {
+export default function QestionPage() {
   const [visibility, setVisibility] = useState(false);
   const { index } = useContext(AppContext);
   const router = useRouter();
