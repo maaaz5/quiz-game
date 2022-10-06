@@ -11,6 +11,10 @@ export default function qestionPage() {
   const router = useRouter();
   let { id } = router.query;
 
+  useEffect(() => {
+    setVisibility(false);
+  }, [id]);
+
   return (
     <div>
       <h3>{data[index - 1]?.questions[id]?.q}</h3>
