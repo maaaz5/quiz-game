@@ -20,6 +20,10 @@ export default function Category() {
 
     clicked.classList.add("active");
     indexNum(clicked.value);
+    const sp = document
+      .querySelectorAll("span")
+      .forEach((sp) => sp.classList.remove("active"));
+
     router.push("/");
   };
 
