@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import Category from "../components/Category";
+import Questions from "../components/Questions";
 import { AppProvider } from "../context/AppContext";
 
 function MyApp({ Component, pageProps }) {
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <div className="container">
         <Category />
+        <Questions />
       </div>
 
       <div>

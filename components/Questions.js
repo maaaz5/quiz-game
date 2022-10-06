@@ -7,6 +7,16 @@ import Link from "next/link";
 export default function Questions() {
   const { index } = useContext(AppContext);
 
+  const handleClick = (e) => {
+    const clicked = e.target.closest("span");
+
+    if (!clicked) return;
+    let lis = document.querySelectorAll("span");
+    lis.forEach((sp) => sp.classList.remove("active"));
+
+    clicked.classList.add("active");
+  };
+
   return (
     <div>
       <h2 className="u-align-center ">please, select a question</h2>
@@ -15,7 +25,9 @@ export default function Questions() {
           {data[index - 1].questions.map((qs, i) => {
             return (
               <Link href={`/question/${i}`} key={i}>
-                <span className={styles.num}>{i + 1}</span>
+                <span onClick={handleClick} className={styles.num}>
+                  {i + 1}
+                </span>
               </Link>
             );
           })}
