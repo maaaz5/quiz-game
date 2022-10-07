@@ -12,15 +12,16 @@ export default function QestionPage() {
   const router = useRouter();
   let { id } = router.query;
 
-  // useEffect(() => {
-  //   setVisibility(false);
-  // }, [id]);
+  useEffect(() => {}, [id]);
 
   return (
     <div className={styles.card}>
-      <h3 className={styles.question}>
-        Q: {data[index - 1]?.questions[id]?.q}
-      </h3>
+      {data[index - 1]?.questions[id]?.q && (
+        <h3 className={styles.question}>
+          Q: {data[index - 1]?.questions[id]?.q}
+        </h3>
+      )}
+
       {/* <button onClick={() => setVisibility(!visibility)}>
         Show the answer
       </button> */}
