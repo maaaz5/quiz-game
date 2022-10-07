@@ -27,9 +27,9 @@ export default function QestionPage() {
       </button> */}
 
       <div className={styles.field__items}>
-        {data[index - 1]?.questions[id]?.a.map((an) => {
+        {data[index - 1]?.questions[id]?.a.map((an, index) => {
           return (
-            <section className={styles.page__section}>
+            <section key={index} className={styles.page__section}>
               <h4 id="section-1">{an}</h4>
             </section>
           );
