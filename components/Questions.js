@@ -18,21 +18,23 @@ export default function Questions() {
   };
 
   return (
-    <div>
-      <h2 className="u-align-center ">please, select a question</h2>
-      {index && (
-        <div className={styles.row}>
-          {data[index - 1].questions.map((qs, i) => {
-            return (
-              <Link href={`/question/${i}`} key={i}>
-                <span onClick={handleClick} className={styles.num}>
-                  {i + 1}
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-      )}
-    </div>
+    index && (
+      <div>
+        <h2 className="u-align-center ">please, select a question</h2>
+        {index && (
+          <div className={styles.row}>
+            {data[index - 1].questions.map((qs, i) => {
+              return (
+                <Link href={`/question/${i}`} key={i}>
+                  <span onClick={handleClick} className={styles.num}>
+                    {i + 1}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    )
   );
 }
