@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { useRouter } from "next/router";
+import { data } from "../data/data";
 const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
@@ -10,8 +11,13 @@ export const AppProvider = ({ children }) => {
   const indexNum = (num) => {
     setIndex(num);
   };
+
+  const setDejaVu = (branchId, questionId) => {
+    data[branchId - 1].questions[questionId].dejavu = true;
+  };
+
   return (
-    <AppContext.Provider value={{ index, indexNum }}>
+    <AppContext.Provider value={{ index, indexNum, setDejaVu }}>
       {children}
     </AppContext.Provider>
   );

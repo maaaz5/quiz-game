@@ -8,11 +8,10 @@ import AppContext from "../../context/AppContext";
 
 export default function QestionPage() {
   // const [visibility, setVisibility] = useState(false);
+
   const { index } = useContext(AppContext);
   const router = useRouter();
   let { id } = router.query;
-
-  useEffect(() => {}, [id]);
 
   return (
     <div className={styles.card}>

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
 import { data } from "../data/data";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 export default function Questions() {
-  const { index } = useContext(AppContext);
+  const { index, setDejaVu } = useContext(AppContext);
 
   const handleClick = (e) => {
     const clicked = e.target.closest("span");
@@ -25,8 +25,14 @@ export default function Questions() {
           <div className={styles.row}>
             {data[index - 1].questions.map((qs, i) => {
               return (
-                <Link href={`/question/${i}`} key={i}>
-                  <span onClick={handleClick} className={styles.num}>
+                <Link href={qs.dejavu ? "/" : `/question/${i}`} key={i}>
+                  <span
+                    className={qs.dejavu ? styles.dejaVu : styles.num}
+                    onClick={(e) => {
+                      handleClick(e);
+                      setDejaVu(index, i);
+                    }}
+                  >
                     {i + 1}
                   </span>
                 </Link>

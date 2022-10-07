@@ -45,9 +45,7 @@
 
 .page__section h4:hover {
   border-radius: var(--cornersRadius);
-  background-color: var(--color-secondary) !important;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
-  color: black;
+  filter: brightness(0.9);
 }
 
 .page__section h4::before {
