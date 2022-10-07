@@ -1,0 +1,81 @@
+.card {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.question {
+  font-size: 22px;
+  font-weight: 500;
+  min-width: 450px;
+  text-align: center;
+  color: white;
+  background-color: var(--color-secondary);
+  padding: 10px 25px;
+  border-radius: var(--cornersRadius);
+}
+
+.field__items {
+  counter-reset: section;
+}
+
+.page__section h4 {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  font-weight: 500;
+  padding-top: 1.8em;
+  display: inline-block;
+  min-width: 450px;
+  text-align: left;
+  padding: 10px 25px;
+  background-color: white;
+  border-radius: var(--cornersRadius);
+  border: 1px solid var(--color-secondary);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.page__section:not(:last-child) {
+  margin: 20px 0px;
+}
+
+.page__section h4:hover {
+  border-radius: var(--cornersRadius);
+  background-color: var(--color-secondary) !important;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+  color: black;
+}
+
+.page__section h4::before {
+  counter-increment: section;
+  content: counter(section, upper-alpha) ".";
+  font-size: 16px;
+  color: black;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-right: 10px;
+  top: 50%;
+  left: -30px;
+}
+
+/* .page__section h4::after {
+  content: "";
+  height: 10px;
+  width: 25%;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background: #ef4a24;
+  z-index: 1;
+} */

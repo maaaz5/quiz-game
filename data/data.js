@@ -11,27 +11,19 @@ export const data = [
     questions: [
       {
         q: "what's the best prgramming language ?",
-        a: "JavaScript",
+        a: ["JavaScript", "JavaScript"],
       },
       {
         q: "what's web 3.0 ?",
-        a: "CRUD",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
       {
         q: "which OS is better for developers ?",
-        a: "MAC",
+        a: ["MAC", "MAC", "MAC"],
       },
       {
         q: "what's the best prgramming language ?",
-        a: "JavaScript",
-      },
-      {
-        q: "what's web 3.0 ?",
-        a: "CRUD",
-      },
-      {
-        q: "which OS is better for developers ?",
-        a: "MAC",
+        a: ["JavaScript", "JavaScript"],
       },
     ],
   },
@@ -42,15 +34,15 @@ export const data = [
     questions: [
       {
         q: "who's the best football player in the world ?",
-        a: "Siuuu",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
       {
         q: "what player scored most goals in one single year ?",
-        a: "ankara messi",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
       {
         q: "best bicycle goal ?",
-        a: "semi finals JUV vs RMA, and the rest is history",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
     ],
   },
@@ -61,15 +53,15 @@ export const data = [
     questions: [
       {
         q: "who's the best football player in the world ?",
-        a: "Siuuu",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
       {
         q: "what player scored most goals in one single year ?",
-        a: "ankara messi",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
       {
         q: "best bicycle goal ?",
-        a: "semi finals JUV vs RMA, and the rest is history",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
     ],
   },
@@ -80,15 +72,15 @@ export const data = [
     questions: [
       {
         q: "who's the best football player in the world ?",
-        a: "Siuuu",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
       {
         q: "what player scored most goals in one single year ?",
-        a: "ankara messi",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
       {
         q: "best bicycle goal ?",
-        a: "semi finals JUV vs RMA, and the rest is history",
+        a: ["CRUD", "CRUD", "CRUD"],
       },
     ],
   },
