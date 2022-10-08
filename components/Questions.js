@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
 import { data } from "../data/data";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 export default function Questions() {
-  const { index, setDejaVu } = useContext(AppContext);
-
+  const { index } = useContext(AppContext);
   const handleClick = (e) => {
     const clicked = e.target.closest("span");
 
@@ -30,7 +29,6 @@ export default function Questions() {
                     className={qs.dejavu ? styles.dejaVu : styles.num}
                     onClick={(e) => {
                       handleClick(e);
-                      setDejaVu(index, i);
                     }}
                   >
                     {i + 1}
