@@ -28,7 +28,7 @@ export default function Questions() {
                   <span
                     className={qs.dejavu ? styles.dejaVu : styles.num}
                     onClick={(e) => {
-                      handleClick(e);
+                      !qs.dejavu && handleClick(e);
                     }}
                   >
                     {i + 1}
