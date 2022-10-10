@@ -10,10 +10,10 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Quiz Game</title>
       </Head>
-      <div className="container">
+      {/* <div className="container">
         <Category />
         <Questions />
-      </div>
+      </div> */}
 
       <div>
         <Component {...pageProps} />

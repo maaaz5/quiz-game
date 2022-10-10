@@ -13,8 +13,11 @@
 :root {
   --color-primary: #f7ecde;
   --color-secondary: #54bab9;
+  --color-secondary-hover: #18978f;
   --color-white: #f9f9f9;
   --cornersRadius: 10px;
+  --dark-color: #333;
+  --light-color: #f5f5f5;
 }
 body {
   background-color: var(--color-primary);

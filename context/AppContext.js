@@ -5,6 +5,8 @@ const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(null);
+  const [dashboard, setDashboard] = useState("/add-new-quiz");
+  const [quizes,setQuizes] = useState(null)
 
   const router = useRouter();
 
@@ -16,8 +18,15 @@ export const AppProvider = ({ children }) => {
     data[branchId - 1].questions[questionId].dejavu = true;
   };
 
+
+  const contextProps = {
+    index, indexNum, setDejaVu, dashboard, setDashboard,setQuizes
+  }
+
   return (
-    <AppContext.Provider value={{ index, indexNum, setDejaVu }}>
+    <AppContext.Provider
+      value={contextProps}
+    >
       {children}
     </AppContext.Provider>
   );
