@@ -28,20 +28,27 @@ export default function QestionPage() {
 
     if (selectedAnswer === data[index - 1]?.questions[id]?.answer[0]) {
       clicked.classList.add("trueAnswer");
-      console.log("hol2a");
+      document.body.style.animationName = "fadeInGreen";
     } else {
       clicked.classList.add("wrongAnswer");
+      document.body.style.animationName = "fadeInRed";
     }
   };
 
   useEffect(() => {
     setDejaVu(index, id);
     setChoice(null);
+    document.body.style.animationName = "";
   }, [id]);
 
   return (
     <div className={styles.card}>
-      <Link href={"/"}>Go Back</Link>
+      <div className={styles.btnsContainer}>
+        <Link href={"/"}>
+          <button className="btn btn__primary">Go Back</button>
+        </Link>
+      </div>
+
       <p className={styles.question__id}>
         {Number(id) + 1} / {data[index - 1]?.questions.length}
       </p>
@@ -67,6 +74,19 @@ export default function QestionPage() {
           );
         })}
       </div>
+
+      {/* <div className={styles.btnsContainer}>
+        {Number(id) !== 0 && (
+          <Link href={`/question/${Number(id) - 1}`}>
+            <button className="btn btn__secondary">Prev Question</button>
+          </Link>
+        )}
+        {Number(id) !== data[index - 1]?.questions.length - 1 && (
+          <Link href={`/question/${Number(id) + 1}`}>
+            <button className="btn btn__primary">Next Question</button>
+          </Link>
+        )}
+      </div> */}
     </div>
   );
 }
