@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import { data } from "../../data/data";
 import { useContext } from "react";
 import Link from "next/link";
@@ -11,7 +11,9 @@ export default function QestionPage() {
   const [choice, setChoice] = useState(null);
 
   const { index, setDejaVu } = useContext(AppContext);
+
   const router = useRouter();
+
   let { id } = router.query;
 
   const handleClick = (e) => {

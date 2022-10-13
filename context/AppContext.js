@@ -6,7 +6,7 @@ const AppContext = createContext({});
 export const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(null);
   const [dashboard, setDashboard] = useState("/add-new-quiz");
-  const [quizes,setQuizes] = useState(null)
+  const [quizes, setQuizes] = useState(null);
 
   const router = useRouter();
 
@@ -15,20 +15,25 @@ export const AppProvider = ({ children }) => {
   };
 
   const setDejaVu = (branchId, questionId) => {
+    if (!data[branchId - 1]?.questions) {
+      router.push("/");
+      return;
+    }
+
     data[branchId - 1].questions[questionId].dejavu = true;
   };
 
-
   const contextProps = {
-    index, indexNum, setDejaVu, dashboard, setDashboard,setQuizes
-  }
+    index,
+    indexNum,
+    setDejaVu,
+    dashboard,
+    setDashboard,
+    setQuizes,
+  };
 
   return (
-    <AppContext.Provider
-      value={contextProps}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={contextProps}>{children}</AppContext.Provider>
   );
 };
 

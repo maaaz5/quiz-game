@@ -50,9 +50,11 @@ a {
 
 .trueAnswer {
   background-color: green !important;
+  color: white;
 }
 .wrongAnswer {
   background-color: red !important;
+  color: white;
 }
 
 /* helpers */
@@ -88,7 +90,6 @@ a {
     background-color: green;
   }
   100% {
-    background-color: var(--color-primary);
   }
 }
 
