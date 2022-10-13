@@ -117,7 +117,8 @@ const Label = styled.div`
 `;
 
 const Input = styled.input`
-  boder: none;
+  border: none;
+  border-left: 1px solid black;
   outline: none;
   font-size: 1.5rem;
   flex: 0.8;

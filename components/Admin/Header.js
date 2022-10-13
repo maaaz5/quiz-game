@@ -51,6 +51,7 @@ const HeaderContainer = styled.header`
 
 const CardContainer = styled.div`
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
 `;
 
