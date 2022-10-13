@@ -12,7 +12,7 @@ import AppContext from "../../context/AppContext";
 
 const BACKEND_URL = process.env.BACKEND_URL;
 
-export default function AdminPage({ quizes }) {
+export default function AdminPage({ quizes, themes, groups }) {
   const { dashboard, setQuizes } = useContext(AppContext);
 
   return (
@@ -21,9 +21,9 @@ export default function AdminPage({ quizes }) {
       <Dashboard>
         {dashboard === "/add-new-quiz" && <AddNewQuiz />}
         {dashboard === "/quizes" && <Quizes />}
-        {dashboard === "/themes" && <Themes />}
+        {dashboard === "/themes" && <Themes themes={themes} />}
         {dashboard === "/questions" && <Questions />}
-        {dashboard === "/groups" && <Groups />}
+        {dashboard === "/groups" && <Groups groups={groups} />}
       </Dashboard>
     </AdminPageContainer>
   );

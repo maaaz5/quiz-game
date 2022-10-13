@@ -1,31 +1,83 @@
+import { useState } from "react";
+
 import styled from "styled-components";
 
-export default function AddNewQuiz() {
+export default function AddNewQuiz({ themes, groups }) {
+  const [showThemes, setShowThemes] = useState(false);
+  const [showGroups, setShowGroups] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    themes: "",
+    groups: "",
+  });
+
+  const handleSubmit = async () => {};
+
+  const handleChange = (e) => {};
+
+  const handleShowThemes = () => {
+    if (!showThemes) {
+      setShowThemes(true);
+    } else {
+      setShowThemes(false);
+    }
+  };
+  const handleShowGroups = () => {
+    if (!showGroups) {
+      setShowGroups(true);
+    } else {
+      setShowGroups(false);
+    }
+  };
+
   return (
     <Container>
-      <InputContainer>
-        <Label>Quiz Name</Label>
-        <Input />
-      </InputContainer>
-      <InputContainer>
-        <Label>Quiz Themes</Label>
-        <Input />
-      </InputContainer>
-      <InputContainer>
-        <Label>Quiz Groups</Label>
-        <Input />
-      </InputContainer>
+      <form onSubmit={handleSubmit}>
+        <InputContainer>
+          <Label>Quiz Name</Label>
+          <Input value={formData.name} onChange={handleChange} />
+        </InputContainer>
+        <InputContainer>
+          <Label>Quiz Themes</Label>
+          <Input />
+        </InputContainer>
+        <Themes show={showThemes}>
+          {themes?.length === 0 ? <div></div> : <div></div>}
+        </Themes>
+        <InputContainer>
+          <Label>Quiz Groups</Label>
+          <Input />
+        </InputContainer>
+        <Groups show={showGroups}>
+          {groups?.length === 0 ? <div></div> : <div></div>}
+        </Groups>
 
-      <Button>Create Quiz</Button>
+        <Button type="submit">Create Quiz</Button>
+      </form>
     </Container>
   );
 }
 
+const Themes = styled.div`
+  width: 100%;
+  min-height: 100px;
+  background-color: white;
+  display: ${(props) => (props.show ? "flex" : "none")};
+`;
+const Groups = styled.div`
+  width: 100%;
+  min-height: 100px;
+  background-color: white;
+  display: ${(props) => (props.show ? "flex" : "none")};
+`;
+
 const Container = styled.div`
   width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Button = styled.button`
