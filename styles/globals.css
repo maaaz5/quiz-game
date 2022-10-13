@@ -46,6 +46,13 @@ a {
   padding: 4rem 0;
 }
 
+.trueAnswer {
+  background-color: green !important;
+}
+.wrongAnswer {
+  background-color: red !important;
+}
+
 /* helpers */
 
 .u-align-center {

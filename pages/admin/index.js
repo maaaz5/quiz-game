@@ -43,7 +43,7 @@ export async function getServerSideProps() {
   // Fetching Groups
   const groupsRes = await fetch(`${BACKEND_URL}/group/all`);
   const groupsData = await groupsRes.json();
-  const groups = groupsData.data;
+  const groups = groupsData.data || null;
 
   return {
     props: {
@@ -56,6 +56,7 @@ export async function getServerSideProps() {
 
 const AdminPageContainer = styled.div`
   margin: 2rem;
+
   display: flex;
   flex-direction: column;
 `;
@@ -63,6 +64,7 @@ const AdminPageContainer = styled.div`
 const Dashboard = styled.main`
   min-height: 60vh;
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;

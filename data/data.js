@@ -11,17 +11,20 @@ export let data = [
     questions: [
       {
         q: "what's the best prgramming language ?",
-        a: ["JavaScript", "JavaScript"],
+        a: ["JavaScript", "C++"],
+        t: ["JavaScript"],
         dejavu: false,
       },
       {
         q: "what's web 3.0 ?",
-        a: ["CRUD", "CRUD", "CRUD"],
+        a: ["JavaScript", "CRUD", "CRUD"],
+        t: ["JavaScript"],
         dejavu: false,
       },
       {
         q: "which OS is better for developers ?",
-        a: ["MAC", "MAC", "MAC"],
+        a: ["MAC", "JavaScript", "JavaScript"],
+        t: ["MAC"],
         dejavu: false,
       },
       {
