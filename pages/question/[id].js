@@ -26,7 +26,7 @@ export default function QestionPage() {
     const selectedAnswer = clicked.innerText;
     clicked.style.filter = "brightness(1)";
 
-    if (selectedAnswer === data[index - 1]?.questions[id]?.t[0]) {
+    if (selectedAnswer === data[index - 1]?.questions[id]?.answer[0]) {
       clicked.classList.add("trueAnswer");
       console.log("hol2a");
     } else {
@@ -48,7 +48,7 @@ export default function QestionPage() {
 
       {data[index - 1]?.questions[id]?.q && (
         <h3 className={styles.question}>
-          Q: {data[index - 1]?.questions[id]?.q}
+          Q: {data[index - 1]?.questions[id]?.question}
         </h3>
       )}
 
@@ -59,7 +59,7 @@ export default function QestionPage() {
           setChoice(true);
         }}
       >
-        {data[index - 1]?.questions[id]?.a.map((an, index) => {
+        {data[index - 1]?.questions[id]?.options.map((an, index) => {
           return (
             <section key={index} className={styles.page__section}>
               <h4 id="section-1">{an}</h4>
