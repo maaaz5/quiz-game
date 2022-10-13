@@ -46,7 +46,7 @@ export default function QestionPage() {
         {Number(id) + 1} / {data[index - 1]?.questions.length}
       </p>
 
-      {data[index - 1]?.questions[id]?.q && (
+      {data[index - 1]?.questions[id]?.question && (
         <h3 className={styles.question}>
           Q: {data[index - 1]?.questions[id]?.question}
         </h3>
