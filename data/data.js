@@ -333,7 +333,7 @@ export let data = [
       {
         id: 15,
 
-        question: "Quel est le continent le plus peuplé de la planète ?",
+        question: "Quand a été créée l'ONU ?",
         options: ["1914", "1939", "1945", "1951"],
         answers: [3],
         dejavu: false,

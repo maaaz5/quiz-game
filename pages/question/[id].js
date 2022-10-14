@@ -34,8 +34,6 @@ export default function QestionPage() {
     const selectedAnswerIndex =
       data[branch.id]?.questions[id].options.indexOf(selectedAnswer) + 1;
 
-    console.log("Selected Answer :", selectedAnswerIndex);
-
     setAnswers((prevState) => {
       return prevState.push(Number(selectedAnswerIndex));
     });
