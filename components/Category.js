@@ -9,20 +9,22 @@ export default function Category() {
   const [index, setIndex] = useState(null);
   const router = useRouter();
 
-  const { indexNum } = useContext(AppContext);
+  const { indexNum, branch, setBranch, data } = useContext(AppContext);
 
-  const handleClick = (e) => {
-    const clicked = e.target.closest("li");
+  const handleClick = (branchId, branchName) => {
+    setBranch({ id: branchId - 1, name: branchName });
 
-    if (!clicked) return;
-    let lis = document.querySelectorAll("li");
-    lis.forEach((li) => li.classList.remove("active"));
+    // const clicked = e.target.closest("li");
 
-    clicked.classList.add("active");
-    indexNum(clicked.value);
-    const sp = document
-      .querySelectorAll("span")
-      .forEach((sp) => sp.classList.remove("active"));
+    // if (!clicked) return;
+    // let lis = document.querySelectorAll("li");
+    // lis.forEach((li) => li.classList.remove("active"));
+
+    // clicked.classList.add("active");
+    // indexNum(clicked.value);
+    // const sp = document
+    //   .querySelectorAll("span")
+    //   .forEach((sp) => sp.classList.remove("active"));
 
     router.push("/");
   };
@@ -30,9 +32,16 @@ export default function Category() {
   return (
     <>
       <h2 className="u-align-center ">please, select a category</h2>
-      <ul className={styles.list} onClick={handleClick}>
-        {data.map((dt) => (
-          <li className={styles.list__item} key={dt.id} value={dt.id}>
+      <ul className={styles.list}>
+        {data?.map((dt) => (
+          <li
+            className={`${styles.list__item} ${
+              branch.id === dt.id - 1 && "active"
+            }`}
+            key={dt.id}
+            value={dt.id}
+            onClick={() => handleClick(dt.id, dt.branch)}
+          >
             <p className={styles.icon}>{dt?.icon}</p>
             {dt.branch}
           </li>

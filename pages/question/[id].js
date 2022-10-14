@@ -9,12 +9,14 @@ import AppContext from "../../context/AppContext";
 
 export default function QestionPage() {
   const [choice, setChoice] = useState(null);
+  const [answers, setAnswers] = useState([]);
 
-  const { index, setDejaVu } = useContext(AppContext);
+  const { branch, setDejaVu, checkAnswer } = useContext(AppContext);
 
   const router = useRouter();
 
   let { id } = router.query;
+  id = Number(id) - 1;
 
   const handleClick = (e) => {
     const clicked = e.target.closest("h4");
@@ -30,14 +32,17 @@ export default function QestionPage() {
 
     // Getting the index of the selected option to compare it later with the ansers value array
     const selectedAnswerIndex =
-      data[index - 1]?.questions[id].options.indexOf(selectedAnswer) + 1;
+      data[branch.id]?.questions[id].options.indexOf(selectedAnswer) + 1;
 
-    // Checking if the selectedAnswerIndex matches one of the value in the array
-    if (
-      data[index - 1]?.questions[id]?.answers.some(
-        (a) => a === selectedAnswerIndex
-      )
-    ) {
+    console.log("Selected Answer :", selectedAnswerIndex);
+
+    setAnswers((prevState) => {
+      return prevState.push(Number(selectedAnswerIndex));
+    });
+
+    let isAnswerCorrect = checkAnswer(id, answers);
+
+    if (isAnswerCorrect) {
       clicked.classList.add("trueAnswer");
       document.body.style.animationName = "fadeInGreen";
     } else {
@@ -46,8 +51,40 @@ export default function QestionPage() {
     }
   };
 
+  const handleClick2 = (e) => {
+    const clicked = e.target.closest("h4");
+
+    if (!clicked) return;
+
+    // const key = clicked.getAttribute("key");
+    const selectedAnswer = clicked.innerText;
+    clicked.style.backgroundColor = "#4087f7";
+    clicked.style.color = "white";
+
+    // Getting the index of the selected option to compare it later with the ansers value array
+    const selectedAnswerIndex =
+      data[branch.id]?.questions[id].options.indexOf(selectedAnswer) + 1;
+
+    setAnswers((prevState) => {
+      return [...prevState, Number(selectedAnswerIndex)];
+    });
+  };
+
+  const submitAnswers = () => {
+    let lis = document.querySelectorAll("h4");
+    lis.forEach((sp) => (sp.style.filter = "brightness(0.5)"));
+
+    let isAnswerCorrect = checkAnswer(id, answers);
+
+    if (isAnswerCorrect) {
+      document.body.style.animationName = "fadeInGreen";
+    } else {
+      document.body.style.animationName = "fadeInRed";
+    }
+  };
+
   useEffect(() => {
-    setDejaVu(index, id);
+    setDejaVu(branch.id, id);
     setChoice(null);
     document.body.style.animationName = "";
   }, [id]);
@@ -61,30 +98,48 @@ export default function QestionPage() {
       </div>
 
       <p className={styles.question__id}>
-        {Number(id) + 1} / {data[index - 1]?.questions.length}
+        {Number(id) + 1} / {data[branch.id]?.questions.length}
       </p>
 
-      {data[index - 1]?.questions[id]?.question && (
+      {data[branch.id]?.questions[id]?.question && (
         <h3 className={styles.question}>
-          Q: {data[index - 1]?.questions[id]?.question}
+          Q: {data[branch.id]?.questions[id]?.question}
         </h3>
       )}
 
-      <div
-        className={styles.field__items}
-        onClick={(e) => {
-          !choice && handleClick(e);
-          setChoice(true);
-        }}
-      >
-        {data[index - 1]?.questions[id]?.options.map((an, index) => {
-          return (
-            <section key={index} className={styles.page__section}>
-              <h4 id="section-1">{an}</h4>
-            </section>
-          );
-        })}
-      </div>
+      {data[branch.id]?.questions[id]?.answers.length <= 1 ? (
+        <div
+          className={styles.field__items}
+          onClick={(e) => {
+            !choice && handleClick(e);
+            setChoice(true);
+          }}
+        >
+          {data[branch.id]?.questions[id]?.options.map((an, index) => {
+            return (
+              <section key={index} className={styles.page__section}>
+                <h4 id="section-1">{an}</h4>
+              </section>
+            );
+          })}
+        </div>
+      ) : (
+        <div
+          className={styles.field__items}
+          onClick={(e) => {
+            handleClick2(e);
+          }}
+        >
+          {data[branch.id]?.questions[id]?.options.map((an, index) => {
+            return (
+              <section key={index} className={styles.page__section}>
+                <h4 id="section-1">{an}</h4>
+              </section>
+            );
+          })}
+          <button onClick={submitAnswers}>Submit</button>
+        </div>
+      )}
 
       {/* <div className={styles.btnsContainer}>
         {Number(id) !== 0 && (

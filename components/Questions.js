@@ -4,8 +4,13 @@ import AppContext from "../context/AppContext";
 import { data } from "../data/data";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 export default function Questions() {
-  const { index } = useContext(AppContext);
+  const router = useRouter();
+  const [exisitingBranch, setExisitingBranch] = useState(false);
+  const { branch } = useContext(AppContext);
+
   const handleClick = (e) => {
     const clicked = e.target.closest("span");
 
@@ -16,24 +21,32 @@ export default function Questions() {
     clicked.classList.add("active");
   };
 
+  useEffect(() => {
+    if (branch) {
+      setExisitingBranch(true);
+    } else {
+      setExisitingBranch(false);
+    }
+  }, [branch]);
+
   return (
-    index && (
+    exisitingBranch && (
       <div>
         <h2 className="u-align-center ">please, select a question</h2>
-        {index && (
+        {exisitingBranch && (
           <div className={styles.row}>
-            {data[index - 1].questions.map((qs, i) => {
+            {data[branch.id]?.questions.map((qs) => {
               return (
-                <Link href={qs.dejavu ? "/" : `/question/${i}`} key={i}>
-                  <span
-                    className={qs.dejavu ? styles.dejaVu : styles.num}
-                    onClick={(e) => {
-                      !qs.dejavu && handleClick(e);
-                    }}
-                  >
-                    {i + 1}
-                  </span>
-                </Link>
+                <span
+                  key={qs.id}
+                  className={qs.dejavu ? styles.dejaVu : styles.num}
+                  onClick={(e) => {
+                    router.push(`/question/${qs.id}`);
+                    !qs.dejavu && handleClick(e);
+                  }}
+                >
+                  {qs.id}
+                </span>
               );
             })}
           </div>
