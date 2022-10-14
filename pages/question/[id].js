@@ -28,7 +28,16 @@ export default function QestionPage() {
     const selectedAnswer = clicked.innerText;
     clicked.style.filter = "brightness(1)";
 
-    if (selectedAnswer === data[index - 1]?.questions[id]?.answer[0]) {
+    // Getting the index of the selected option to compare it later with the ansers value array
+    const selectedAnswerIndex =
+      data[index - 1]?.questions[id].options.indexOf(selectedAnswer) + 1;
+
+    // Checking if the selectedAnswerIndex matches one of the value in the array
+    if (
+      data[index - 1]?.questions[id]?.answers.some(
+        (a) => a === selectedAnswerIndex
+      )
+    ) {
       clicked.classList.add("trueAnswer");
       document.body.style.animationName = "fadeInGreen";
     } else {
