@@ -25,6 +25,15 @@
   color: var(--dark-color);
 }
 
+.btnsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  width: 50%;
+  margin: 20px 0px;
+}
+
 .field__items {
   counter-reset: section;
 }
