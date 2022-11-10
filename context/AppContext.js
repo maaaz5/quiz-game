@@ -25,18 +25,19 @@ export const AppProvider = ({ children }) => {
 
     data[branchId].questions[questionId].dejavu = true;
   };
-
   const checkAnswer = (question, answers) => {
     // If the question has multiple correct answers
-    if (answers.length > 1) {
+    if (answers.length < data[branch.id].questions[question].answers.length)
+      return false;
+    if (data[branch.id].questions[question].answers.length > 2) {
+      console.log(answers);
       // Sorting both the answers array so that we can compare them correctly
       let userAnswers = answers.sort();
       let questionAnswers = data[branch.id].questions[question].answers.sort();
 
       let correctAnswers = [];
-
       for (let i = 0; i < questionAnswers.length; i++) {
-        if (questionAnswers[i] === userAnswers[i]) {
+        if (Number(questionAnswers[i]) === Number(userAnswers[i])) {
           correctAnswers.push(true);
         } else {
           correctAnswers.push(false);
@@ -45,13 +46,12 @@ export const AppProvider = ({ children }) => {
 
       let areAllTrue = correctAnswers.every((a) => a === true);
 
-      if (areAllTrue) {
+      if (userAnswers.length > 1 && areAllTrue) {
         return true;
       } else {
         return false;
       }
     } else {
-      console.log("user : ", answers);
       // If the question has only one correct answer
       let isCorrect =
         data[branch.id].questions[question].answers[0] === answers[0];
