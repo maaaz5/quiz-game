@@ -106,3 +106,17 @@
   background: #ef4a24;
   z-index: 1;
 } */
+
+@media only screen and (max-width: 600px) {
+  .card {
+    margin: 0 30px;
+  }
+  .question {
+    width: 100%;
+    min-width: fit-content;
+  }
+  .page__section h4 {
+    width: 100%;
+    min-width: fit-content;
+  }
+}

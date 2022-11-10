@@ -41,7 +41,9 @@ export default function Questions() {
                   key={qs.id}
                   className={qs.dejavu ? styles.dejaVu : styles.num}
                   onClick={(e) => {
-                    router.push(`/question/${qs.id}`);
+                    !qs.dejavu
+                      ? router.push(`/question/${qs.id}`)
+                      : router.push(`/`);
                     !qs.dejavu && handleClick(e);
                   }}
                 >

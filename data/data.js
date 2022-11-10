@@ -172,34 +172,6 @@ export let data = [
   },
   {
     id: 3,
-    branch: "Music",
-    icon: <ImHeadphones />,
-    questions: [
-      {
-        id: 1,
-
-        q: "who's the best football player in the world ?",
-        a: ["CRUD", "CRUD", "CRUD"],
-        dejavu: false,
-      },
-      {
-        id: 2,
-
-        q: "what player scored most goals in one single year ?",
-        a: ["CRUD", "CRUD", "CRUD"],
-        dejavu: false,
-      },
-      {
-        id: 3,
-
-        q: "best bicycle goal ?",
-        a: ["CRUD", "CRUD", "CRUD"],
-        dejavu: false,
-      },
-    ],
-  },
-  {
-    id: 4,
     branch: "General Culture",
     icon: <GiBookshelf />,
     questions: [
@@ -310,20 +282,13 @@ export let data = [
 
         question:
           "Quel est le plus grand continent de la planète en termes de superficie ?",
-        options: ["Oui", "Non"],
-        answers: [1],
-        dejavu: false,
-      },
-      {
-        id: 13,
-
-        question: "Le soleil tourne-t-il autour de lui-même ?",
         options: ["Asie", "Afrique", "Europe"],
         answers: [1],
         dejavu: false,
       },
+
       {
-        id: 14,
+        id: 13,
 
         question: "Quel est le continent le plus peuplé de la planète ?",
         options: ["Asie", "Australie", "Amérique"],
@@ -331,7 +296,7 @@ export let data = [
         dejavu: false,
       },
       {
-        id: 15,
+        id: 14,
 
         question: "Quand a été créée l'ONU ?",
         options: ["1914", "1939", "1945", "1951"],

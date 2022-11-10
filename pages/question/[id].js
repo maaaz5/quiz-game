@@ -100,9 +100,14 @@ export default function QestionPage() {
       </p>
 
       {data[branch.id]?.questions[id]?.question && (
-        <h3 className={styles.question}>
-          Q: {data[branch.id]?.questions[id]?.question}
-        </h3>
+        <div className={styles.question}>
+          <h3 style={{ fontWeight: "500" }}>
+            Q: {data[branch.id]?.questions[id]?.question}
+          </h3>
+          {data[branch.id]?.questions[id]?.string ?? (
+            <p>{data[branch.id]?.questions[id]?.string}</p>
+          )}
+        </div>
       )}
 
       {data[branch.id]?.questions[id]?.answers.length <= 1 ? (
